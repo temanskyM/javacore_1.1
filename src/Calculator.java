@@ -3,17 +3,14 @@ import java.util.function.*;
 public class Calculator {
     static Supplier<Calculator> instance = Calculator::new;
 
-    BinaryOperator<Integer> plus = (x, y) -> x + y;
+    BinaryOperator<Integer> plus = Integer::sum;
     BinaryOperator<Integer> minus = (x, y) -> x - y;
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
     BinaryOperator<Integer> devide = (x, y) -> x / y;
 
     UnaryOperator<Integer> pow = x -> x * x;
 
-    UnaryOperator<Integer> abs = (x) -> {
-        if (x > 0) return x;
-        else return x * (-1);
-    };
+    UnaryOperator<Integer> abs = Math::abs;
 
     Predicate<Integer> isPositive = x -> x > 0;
 
